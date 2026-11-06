@@ -123,22 +123,14 @@ export const MOCK_ARTICLES = [
 
 export const MOCK_TEAM = {
   bureau: [
-    { name: 'Victor NZE ONDO', role: 'Président', profession: 'Ingénieur', photo: null },
-    { name: 'Aïcha MBOUMBA', role: 'Vice-présidente', profession: 'Enseignante-chercheuse', photo: null },
-    { name: 'Jordan MOUSSAVOU', role: 'Secrétaire général', profession: 'Informaticien', photo: null },
-    { name: 'Clarisse NDONG', role: 'Secrétaire adjointe', profession: 'Biologiste', photo: null },
-    { name: 'Patrick OBIANG', role: 'Trésorier', profession: 'Économiste', photo: null },
-    { name: 'Sandrine MINKO', role: 'Chargée de communication', profession: 'Journaliste scientifique', photo: null },
+    { name: 'Florent NGUEMA NDONG', role: 'Trésorier et membre du comité scientifique', profession: 'Mathématiciens', photo: null },
+    { name: 'BIEDZO BI ONDO', role: 'Secrétaire général Adjoint du comité scientifique', profession: null, photo: null },
+    { name: 'Cédric LIGNA', role: 'Enseignante-chercheur et Membre du comité scientifique', profession: 'géologue', photo: null },
+    { name: 'Léna Leontine NZAMO OBIANG', role: null, profession: 'Chargé de la communication et de l\'audiovisuel de l\'ONG', photo: null },
+    { name: 'Victory NFOUMOU OBAME', role: 'Enseignante-chercheuse', profession: 'géologue', photo: null },
+    { name: 'Béatrice MBENGONNE OBAME', role: 'Etudiante, Agronomie et Agro foresterie', profession: null, photo: null },
+  
   ],
   comite: [
-    { name: 'Dr Éric NGUEMA', role: 'Physique nucléaire', profession: 'Enseignant-chercheur', photo: null },
-    { name: 'Dr Mireille ESSONO', role: 'Biologie · Virologie', profession: 'Enseignante-chercheuse', photo: null },
-    { name: 'Dr Alain MBA', role: 'Géologie & fossiles', profession: 'Chercheur', photo: null },
-    { name: 'Dr Linda OYANE', role: 'Chimie', profession: 'Enseignante-chercheuse', photo: null },
-    { name: 'Dr Serge KOUMBA', role: 'Mathématiques', profession: 'Enseignant-chercheur', photo: null },
-    { name: 'Dr Nadège BIYOGO', role: 'Archéologie', profession: 'Chercheuse', photo: null },
-    { name: 'Dr Hervé ELLA', role: 'Géographie', profession: 'Enseignant-chercheur', photo: null },
-    { name: 'Dr Rose MEYE', role: 'Environnement', profession: 'Chercheuse', photo: null },
-    { name: 'Ing. Fabrice ONDO', role: 'Innovation technologique', profession: 'Ingénieur', photo: null },
   ],
 };

@@ -524,7 +524,9 @@ html:not(.has-cursor) .cursor-dot, html:not(.has-cursor) .cursor-ring { display:
 .member:hover .member__ring { opacity: 1; }
 .member__name { font-size: 1.05rem; font-weight: 700; color: var(--night); margin-bottom: 6px; letter-spacing: -.02em; }
 .member__role { color: var(--blue); font-weight: 700; font-size: .92rem; margin: 0 0 4px; }
-.member__job { color: var(--ink-soft); margin: 0; }
+.member__info { margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--line); display: grid; gap: 8px; }
+.member__info dt { font-family: var(--f-mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
+.member__info dd { margin: 2px 0 0; font-size: .88rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
 .member--skeleton { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 
 /* Squelettes */

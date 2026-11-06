@@ -50,7 +50,7 @@ Déposez les photos dans `public/equipe/`, nommées d'après le nom du membre (m
 
 | Membre | Fichier attendu |
 |---|---|
-| Victor NZE ONDO | `public/equipe/victor-nze-ondo.jpg` |
+| Florent NGUEMA NDONG | `public/equipe/florent-nguema-ndong.jpg` |
 | Aïcha MBOUMBA | `public/equipe/aicha-mboumba.jpg` |
 | Jordan MOUSSAVOU | `public/equipe/jordan-moussavou.jpg` |
 | Clarisse NDONG | `public/equipe/clarisse-ndong.jpg` |
@@ -67,3 +67,7 @@ Déposez les photos dans `public/equipe/`, nommées d'après le nom du membre (m
 | Ing. Fabrice ONDO | `public/equipe/ing-fabrice-ondo.jpg` |
 
 Si vous changez un nom dans `src/data/mock.js`, le nom du fichier attendu change aussi. Vous pouvez également indiquer un chemin précis dans le champ `photo` (ex. `photo: '/equipe/president.jpg'`). Une fois le backend branché, le champ `photo` renvoyé par `GET /team` est prioritaire.
+
+## Fiche d'un membre de l'équipe
+
+Chaque membre (dans `src/data/mock.js`, puis dans la réponse de `GET /team`) a les champs : `name`, `role` (poste), `profession`, `specialty` (spécialité) et `photo`. Laissez `specialty: null` pour ne pas afficher la ligne « Spécialité ».

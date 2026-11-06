@@ -43,8 +43,13 @@ function MemberCard({ member, index }) {
     <li className="member" style={{ '--i': index }}>
       <Avatar member={member} />
       <h3 className="member__name">{member.name}</h3>
-      <p className="member__role">{member.role}</p>
-      {member.profession && <p className="member__job mono">{member.profession}</p>}
+      {member.role && <p className="member__role">{member.role}</p>}
+      {(member.profession || member.specialty) && (
+        <dl className="member__info">
+          {member.profession && <div><dt>Profession</dt><dd>{member.profession}</dd></div>}
+          {member.specialty && <div><dt>Spécialité</dt><dd>{member.specialty}</dd></div>}
+        </dl>
+      )}
     </li>
   );
 }
