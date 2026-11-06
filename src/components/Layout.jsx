@@ -121,10 +121,9 @@ function Navbar() {
     return () => window.removeEventListener('keydown', esc);
   }, [open]);
 
-  const darkTop = !scrolled; // toutes les pages commencent par un en-tête sombre
 
   return (
-    <header className={`nav${scrolled ? ' is-scrolled' : ''}${darkTop ? ' is-dark' : ''}${open ? ' is-open' : ''}`}>
+    <header className={`nav${scrolled ? ' is-scrolled' : ''}${scrolled ? '' : ' is-dark'}${open ? ' is-open' : ''}`}>
       <div className="nav__progress" ref={bar} aria-hidden="true" />
       <div className="nav__inner container">
         <Link to="/" onClick={scrollTopNow} className="nav__brand" aria-label="ECHOSCIENCE — accueil">
