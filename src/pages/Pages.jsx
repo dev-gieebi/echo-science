@@ -62,8 +62,8 @@ export function AdhesionPage() {
   useTitle('Adhésion');
   return (
     <>
-      <PageHeader eyebrow="Adhésion" title={<>Devenir <em className="grad-text">membre</em></>}>
-        <p className="page-header__lead">Rejoignez une communauté de chercheurs, d'enseignants et de passionnés.</p>
+      <PageHeader compact eyebrow="Adhésion" title={<>Devenir <em className="grad-text">membre</em></>}>
+        <p className="page-header__lead">Remplissez le formulaire ci-dessous : nous revenons vers vous très vite.</p>
       </PageHeader>
       <Adhesion />
     </>

@@ -123,14 +123,19 @@ export const MOCK_ARTICLES = [
 
 export const MOCK_TEAM = {
   bureau: [
+    { name: 'Victor NZE ONDO', role: 'President de l\'ONG', profession: '', photo: null },
+    { name: 'Sacré ALLOGO ABESSOLO', role: 'Secrétaire Géneral de l\'ONG', profession: '', photo: null },
     { name: 'Florent NGUEMA NDONG', role: 'Trésorier et membre du comité scientifique', profession: 'Mathématiciens', photo: null },
     { name: 'BIEDZO BI ONDO', role: 'Secrétaire général Adjoint du comité scientifique', profession: null, photo: null },
-    { name: 'Cédric LIGNA', role: 'Enseignante-chercheur et Membre du comité scientifique', profession: 'géologue', photo: null },
     { name: 'Léna Leontine NZAMO OBIANG', role: null, profession: 'Chargé de la communication et de l\'audiovisuel de l\'ONG', photo: null },
-    { name: 'Victory NFOUMOU OBAME', role: 'Enseignante-chercheuse', profession: 'géologue', photo: null },
-    { name: 'Béatrice MBENGONNE OBAME', role: 'Etudiante, Agronomie et Agro foresterie', profession: null, photo: null },
+    { name: 'Victory NFOUMOU OBAME', role: 'Enseignante chercheuse', profession: 'géologue', photo: null },
+    { name: 'Christian Bernard MACKAYA', role: 'Trésorie Adjoint', profession:'Maintenance Manager', photo: null },
   
   ],
   comite: [
+    { name: 'Cédric LIGNA', role: 'Enseignant chercheur et Membre du comité scientifique', profession: 'géologue', photo: null },
+    { name: 'Sylvere Yannick LOEMBA MOUANDZA', role: 'Enseignant chercheur au Département de de Physique de L\'USTM et Membre du comité scientifique', profession: 'Docteur Maître Assistant CAMES en Physique Nucléaire', photo: null },
+    { name: 'Djeune-Ronixe BIPOLO', role: 'Membre du comité scientifique', profession: 'Physique', photo: null },
+
   ],
 };

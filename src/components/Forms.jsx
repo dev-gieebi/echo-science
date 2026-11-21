@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MEMBER_TYPES } from '../data/content.js';
+import { DOMAINS, MEMBER_TYPES } from '../data/content.js';
 import { SITE } from '../lib/config.js';
 import { sendAdhesion, sendContact } from '../lib/api.js';
 import { useFormSubmit, FormStatus } from './FormStatus.jsx';
@@ -32,7 +32,10 @@ function useFields(initial) {
 }
 
 /* ---------- Adhésion ---------- */
-const ADHESION_INIT = { name: '', email: '', phone: '', category: 'actif', profession: '', message: '' };
+const ADHESION_INIT = {
+  name: '', email: '', phone: '', city: '', profession: '', institution: '',
+  domain: '', category: 'actif', message: '', consent: false,
+};
 
 export function Adhesion() {
   const [v, set, reset] = useFields(ADHESION_INIT);
@@ -54,9 +57,11 @@ export function Adhesion() {
           <div className="blob blob--3" aria-hidden="true" />
           <div className="adhesion__grid">
             <div className="adhesion__intro">
-              <p className="eyebrow eyebrow--light">Adhésion</p>
+              <p className="eyebrow eyebrow--light">Formulaire d'adhésion</p>
               <h2 className="h2 h2--light" id="adhesion-title">Rejoignez le mouvement.</h2>
               <p>Chercheur, enseignant, étudiant, ingénieur ou simple curieux : votre place est parmi nous.</p>
+            </div>
+            <div className="adhesion__details">
               <ul className="member-types">
                 {MEMBER_TYPES.map((m) => (
                   <li key={m.title}><Icon name="check" size={18} /><div><strong>{m.title}</strong><span>{m.text}</span></div></li>
@@ -73,9 +78,21 @@ export function Adhesion() {
                 <Field label="E-mail" name="email" type="email" value={v.email} onChange={set} required autoComplete="email" idSuffix="adh" />
               </div>
               <div className="form__row">
-                <Field label="Téléphone" name="phone" type="tel" value={v.phone} onChange={set} autoComplete="tel" maxLength={30} />
-                <Field label="Profession" name="profession" value={v.profession} onChange={set} maxLength={120} />
+                <Field label="Téléphone" name="phone" type="tel" value={v.phone} onChange={set} required autoComplete="tel" maxLength={30} />
+                <Field label="Ville de résidence" name="city" value={v.city} onChange={set} required autoComplete="address-level2" maxLength={80} />
               </div>
+              <div className="form__row">
+                <Field label="Profession" name="profession" value={v.profession} onChange={set} required maxLength={120} />
+                <Field label="Établissement / organisation" name="institution" value={v.institution} onChange={set} autoComplete="organization" maxLength={160} />
+              </div>
+              <Field label="Domaine d'intérêt" name="domain" as="select" value={v.domain} onChange={set} required>
+                <option value="" disabled>Choisir…</option>
+                {DOMAINS.map((d) => {
+                  const label = d.name.replace(/^(les |la |l')/, '');
+                  return <option key={d.sym} value={label}>{label.charAt(0).toUpperCase() + label.slice(1)}</option>;
+                })}
+                <option value="Autre">Autre / simple curieux</option>
+              </Field>
               <fieldset className="radio-group">
                 <legend>Catégorie de membre</legend>
                 {[{ k: 'actif', l: 'Membre actif' }, { k: 'bienfaiteur', l: 'Membre bienfaiteur' }].map((o) => (
@@ -86,6 +103,10 @@ export function Adhesion() {
                 ))}
               </fieldset>
               <Field label="Votre motivation" name="message" as="textarea" rows={3} value={v.message} onChange={set} maxLength={2000} idSuffix="adh" />
+              <label className="consent">
+                <input type="checkbox" name="consent" checked={v.consent} onChange={(e) => set('consent', e.target.checked)} required />
+                <span>J'accepte que ECHOSCIENCE utilise ces informations pour traiter ma demande d'adhésion. Elles ne seront jamais publiées.</span>
+              </label>
               <Honeypot />
               <button className="btn btn--white btn--block magnetic" disabled={status === 'loading'}>
                 {status === 'loading' ? <span className="spinner" aria-hidden="true" /> : null}

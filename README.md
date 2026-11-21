@@ -26,6 +26,10 @@ VITE_USE_MOCK_FALLBACK=true   # false = jamais de données de démo
 
 Le contrat d'API (`/articles`, `/articles/{slug}`, `/categories`, `/team`, `/contact`, `/adhesions`, `/newsletter`) est décrit dans le cahier des charges ; tous les appels sont dans `src/lib/api.js`.
 
+### Formulaire d'adhésion (`POST /adhesions`)
+
+Corps JSON envoyé : `name`*, `email`*, `phone`*, `city`*, `profession`*, `institution`, `domain`* (discipline choisie ou « Autre »), `category` (`actif` | `bienfaiteur`), `message`, `consent`* (`true`). `*` = obligatoire côté formulaire ; à revalider côté serveur. Ces données sont privées : elles ne doivent jamais être renvoyées par l'API publique.
+
 ## Déploiement (Apache / Hostinger)
 
 Envoyer le **contenu** de `dist/` dans `public_html/`. Le fichier `.htaccess` (copié depuis `public/`) renvoie toutes les routes vers `index.html`.

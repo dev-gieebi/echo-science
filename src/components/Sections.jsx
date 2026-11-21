@@ -15,9 +15,9 @@ export function SectionHead({ eyebrow, title, intro, light = false, center = fal
 }
 
 /* ---------- En-tête des pages intérieures ---------- */
-export function PageHeader({ eyebrow, title, children }) {
+export function PageHeader({ eyebrow, title, compact = false, children }) {
   return (
-    <header className="page-header">
+    <header className={`page-header${compact ? ' page-header--compact' : ''}`}>
       <div className="page-header__ripples" aria-hidden="true">
         {[0, 1, 2, 3].map((i) => <span key={i} style={{ '--i': i }} />)}
       </div>

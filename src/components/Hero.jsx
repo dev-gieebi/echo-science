@@ -191,7 +191,7 @@ export default function Hero() {
           <h1 id="hero-title" className="hero__title">
             <span className="line"><span>Faire résonner</span></span>
             <span className="line"><span>la <em className="grad-text">science</em></span></span>
-            <span className="line"><span>en Afrique.</span></span>
+            <span className="line"><span>au Gabon et à l'International</span></span>
           </h1>
           <p className="hero__lead">
             Chercheurs, enseignants, ingénieurs et passionnés réunis pour partager {' '}

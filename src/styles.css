@@ -507,7 +507,7 @@ html:not(.has-cursor) .cursor-dot, html:not(.has-cursor) .cursor-ring { display:
 .tabs__btn.is-active { color: var(--white); }
 .tabs__count { font-family: var(--f-mono); font-size: .72rem; padding: 2px 8px; border-radius: 999px; background: rgba(33,60,147,.1); }
 .tabs__btn.is-active .tabs__count { background: var(--glow); color: var(--night); }
-.team__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
+.team__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .member {
   position: relative; padding: 30px 20px 26px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); text-align: center;
   animation: cardIn .7s var(--ease-out) both; animation-delay: calc(var(--i, 0) * 70ms);
@@ -596,8 +596,18 @@ html:not(.has-cursor) .cursor-dot, html:not(.has-cursor) .cursor-ring { display:
 .blob--2 { width: 360px; height: 360px; background: var(--blue); bottom: -140px; left: -60px; animation-delay: -5s; opacity: .8; }
 .blob--3 { width: 260px; height: 260px; background: var(--glow); top: 40%; left: 40%; animation-delay: -9s; opacity: .25; }
 @keyframes blob { 33% { transform: translate(60px, 40px) scale(1.15); } 66% { transform: translate(-40px, 30px) scale(.9); } 100% { transform: translate(20px, -50px) scale(1.05); } }
-.adhesion__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(30px, 5vw, 64px); align-items: start; }
-.adhesion__intro > p { color: var(--on-dark-soft); font-size: 1.05rem; margin: 12px 0 22px; }
+.adhesion__grid {
+  display: grid; grid-template-columns: 1fr 1.1fr; column-gap: clamp(30px, 5vw, 64px); row-gap: 8px; align-items: start;
+  grid-template-areas: "intro form" "details form"; grid-template-rows: auto 1fr;
+}
+.adhesion__intro { grid-area: intro; }
+.adhesion__details { grid-area: details; }
+.adhesion__grid > .form { grid-area: form; }
+.adhesion__intro > p { color: var(--on-dark-soft); font-size: 1.05rem; margin: 12px 0 14px; }
+/* Page Adhésion : en-tête réduit, le formulaire remonte sous le titre */
+.page-header--compact { padding-bottom: clamp(72px, 8vw, 104px); }
+.page-header--compact .page-header__title { font-size: clamp(2rem, 4.5vw, 3.2rem); }
+.page-header--compact + .adhesion { padding-top: 0; margin-top: calc(-1 * clamp(48px, 6vw, 72px)); position: relative; }
 .member-types { display: grid; gap: 14px; margin-bottom: 30px; }
 .member-types li { display: flex; gap: 14px; align-items: flex-start; }
 .member-types .icon { flex-shrink: 0; margin-top: 3px; padding: 3px; width: 24px; height: 24px; border-radius: 50%; background: var(--glow); color: var(--night); }
@@ -630,6 +640,18 @@ html:not(.has-cursor) .cursor-dot, html:not(.has-cursor) .cursor-ring { display:
 .form--glass .field input:focus, .form--glass .field textarea:focus { border-color: var(--glow); background: rgba(6,12,34,.5); box-shadow: 0 0 0 4px rgba(34,194,106,.18); }
 .form--glass .field input:focus + label, .form--glass .field textarea:focus + label,
 .form--glass .field input:not(:placeholder-shown) + label, .form--glass .field textarea:not(:placeholder-shown) + label { color: var(--glow); }
+.field select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322C26A' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; }
+.field--select label { transform: translateY(-11px) scale(.76); font-weight: 600; }
+.field select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(33,60,147,.12); }
+.form--glass .field select { background-color: rgba(6,12,34,.35); border-color: rgba(255,255,255,.2); color: var(--white); }
+.form--glass .field select:invalid { color: var(--on-dark-soft); }
+.form--glass .field select:focus { border-color: var(--glow); box-shadow: 0 0 0 4px rgba(34,194,106,.18); }
+.form--glass .field--select label { color: var(--glow); }
+.field select option { color: var(--ink); background: var(--white); }
+.consent { display: flex; gap: 12px; align-items: flex-start; font-size: .88rem; line-height: 1.5; color: var(--on-dark-soft); cursor: pointer; }
+.consent input { flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px; accent-color: var(--glow); cursor: pointer; }
 .radio-group { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .radio-group legend { width: 100%; margin-bottom: 10px; font-size: .9rem; color: var(--on-dark-soft); }
 .radio { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.25); cursor: pointer; font-weight: 600; font-size: .95rem; transition: all .25s; }
@@ -785,11 +807,13 @@ html:not(.has-cursor) .cursor-dot, html:not(.has-cursor) .cursor-ring { display:
   .hero__inner { grid-template-columns: 1fr; text-align: left; }
   .orbits { max-width: 380px; margin-top: 20px; }
   .about__grid, .adhesion__grid, .contact__grid, .feature__grid { grid-template-columns: 1fr; }
+  .adhesion__grid { grid-template-areas: "intro" "form" "details"; grid-template-rows: none; row-gap: 28px; }
   .feature__grid--reverse .feature__text { order: 0; }
   .panel { min-height: 0; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .missions__list { grid-template-columns: repeat(2, 1fr); }
   .domains__list { grid-template-columns: repeat(3, 1fr); }
+  .team__grid { grid-template-columns: repeat(3, 1fr); }
   .posts-grid { grid-template-columns: repeat(2, 1fr); }
   .post-card--featured .post-card__link { grid-template-columns: 1fr; }
   .post-card--featured .post-card__media { min-height: 0; aspect-ratio: 16/9; }
